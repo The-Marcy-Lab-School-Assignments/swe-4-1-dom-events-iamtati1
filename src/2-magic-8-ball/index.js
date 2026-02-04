@@ -20,12 +20,33 @@ const fortunes = [
   "My sources say no",
   "Outlook not so good",
   "Very doubtful",
-]
+  "Soon enough",
+  "yes",
+];
 
 /* 
 TODO:
-- [ ] Add an event listener to the ask button that:
-  - [ ] hides the eight ball (hint: adjust the style.display property)
-  - [ ] generates a random fortune from the fortunes array
-  - [ ] shows the fortune in the answer element
+- [x] Add an event listener to the ask button that:
+  - [x] hides the eight ball (hint: adjust the style.display property)
+  - [x] generates a random fortune from the fortunes array
+  - [x] shows the fortune in the answer element
 */
+
+// TODO: Listen for button clicks and increase the balloon's font size
+// TODO: When the font size is > 700, "pop" the balloon 💥 
+const button = document.querySelector('#ask-btn');
+const eightBall = document.querySelector("#eight-ball");
+const answer = document.querySelector("#answer");
+button.addEventListener('click', () => {
+  eightBall.style.display = "none";
+  const fortune = generateFortune(fortunes);
+  answer.textContent = fortune;
+
+});
+
+function generateFortune(fortunesArray) {
+  const randomIndex = Math.floor(Math.random() * fortunesArray.length);
+  return fortunesArray[randomIndex];
+}
+
+

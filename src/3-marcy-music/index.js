@@ -30,5 +30,11 @@ const playlists = [
     description: 'A playlist for sad songs',
   },
 ];
+const playlistsGrid = document.querySelector("#playlists-grid");
+const playlistCards = document.querySelectorAll(".playlist-card");
+const nowPlayingTitle = document.querySelector("#now-playing-title");
 
-// Add your code here...
+card.addEventListener("click", () => {
+
+});
+});

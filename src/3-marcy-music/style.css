@@ -109,6 +109,8 @@ main h2 {
 
 .playlist-card.selected {
   border-color: var(--color-primary);
+  outline: 3px solid #d97c6f;
+  transform: scale(1.03);
 }
 
 .playlist-card img {

@@ -35,11 +35,38 @@ But an error is thrown.
 2. Why does this error occur?
 3. What can be done to fix it?
 
-**Your Answer:**
+1. The element is `null` because the **DOM** isn't loaded yet. That's because the button in the body of the HTML has not been created yet. When we type this `querySelector('#my-button')` it returns null. Javascript tries to access `.style` on `null` which then turns into a major error. The button must exist before Javascript runs.
 
+One way to fix this is by moving the `<script>` tag to the bottom of the `<body>`, so the button is created before the JavaScript runs.
+
+Before:
+```
+  <title>Button Clicker</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="index.js"></script>
+  </head>
+  <body>
+    <h1>Button Clicker</h1>
+    <button id="my-button">Click Me!</button>
+  </body>
+</html>
+```
+
+The script lied outside of the function body.
+
+After:
+```
+<body>
+  <h1>Button Clicker</h1>
+  <button id="my-button">Click Me!</button>
+
+  <script src="index.js"></script>
+</body>
+```
+The script is nested within the function body and the script should run after the button exists in the `DOM`. This should then fix the error.
 ## Question 2: event.target vs event.currentTarget
 
-Consider this HTML:
+
 
 ```html
 <div id='button-container'>

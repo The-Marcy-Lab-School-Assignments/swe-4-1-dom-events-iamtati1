@@ -108,11 +108,11 @@ First, get oriented:
 
 Now, to make the page interactive you will need to do the following:
 
-- [ ] Add an event listener to the "Ask" button that:
-  - [ ] hides the eight ball (hint: adjust the `style.display` property)
-  - [ ] generates a random fortune from the fortunes array
-  - [ ] sets the text of the answer element to the chosen fortune
-  - [ ] shows the answer element
+- [x] Add an event listener to the "Ask" button that:
+  - [x] hides the eight ball (hint: adjust the `style.display` property)
+  - [x] generates a random fortune from the fortunes array
+  - [x] sets the text of the answer element to the chosen fortune
+  - [x] shows the answer element
 
 ## Coding Part 3: Marcy Music
 
@@ -136,7 +136,7 @@ First, get oriented:
 
 Your task is to use JavaScript and the DOM to dynamically create the playlist cards and add interactivity such that when you click on a playlist, it will be marked as "selected" and will be shown as "now playing".
 
-- [ ] In `index.js`, for each playlist in the given `playlists` array, create a list item with the playlist title and image:
+- [x] In `index.js`, for each playlist in the given `playlists` array, create a list item with the playlist title and image:
     ```html
     <li class="playlist-card" data-title="Chill Vibes">
       <img src="./img/playlist-chill.jpg"  alt="Chill Vibes playlist cover" />
