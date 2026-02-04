@@ -37,4 +37,3 @@ const nowPlayingTitle = document.querySelector("#now-playing-title");
 card.addEventListener("click", () => {
 
 });
-});
