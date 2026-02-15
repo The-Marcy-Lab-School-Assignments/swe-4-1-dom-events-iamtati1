@@ -30,43 +30,43 @@ const playlistData = [
     description: 'A playlist for sad songs',
   },
 ];
-const playlistsGrid = document.querySelector("#playlists-grid"); //This element is a ul
+const playlistsGrid = document.querySelector("#playlists-grid");
 const playlistCards = document.querySelectorAll(".playlist-card");
 const nowPlayingTitle = document.querySelector("#now-playing-title");
 const selectedCards = [];
 //
 playlistData.forEach((song) => {
-  const songTitleitle = song.title;
-  const songImg = song.img;
+  const songTitle = song.title;
+  const songImg = song.image;
   const songDesc = song.description;
   //
   const li = document.createElement('li');
   const img = document.createElement('img');
-  const name = document.createElement('name');
+  const name = document.createElement('p');
 
 
-  //give li attributes
   li.classList.add("playlist-card")
   li.setAttribute("data-title", song.title);
-  //img manipulation
+
   img.src = songImg;
-  img.alt = `${songTitle} playlist cover` //set alt text
+  img.alt = `${songTitle} playlist cover`
   li.append(img);
 
-  //add element to HTML
+
   name.textContent = songTitle;
   li.append(name);
 
-  playlistGrid.append(li);
+  playlistsGrid.append(li);
 });
 
-//if card is clicked: it is selected and added to now playing section
 
-card.addEventListener("click", () => {
-  if (slectedCards.length > 0) {
-    selectedCards[0].classList.toggle("selected");
-    selectedCards.pop();
-  }
-  li.classList.toggle("selected")
-  selectedCards.push(li);
+playlistsGrid.addEventListener('click', (event) => {
+  const clickedCard = event.target.closest('.playlist-card');
+  if (!clickedCard) return;
+
+  const previous = playlistsGrid.querySelector('.playlist-card.selected');
+  if (previous) previous.classList.remove('selected');
+
+  clickedCard.classList.add('selected');
+  nowPlayingTitle.textContent = clickedCard.dataset.title;
 });

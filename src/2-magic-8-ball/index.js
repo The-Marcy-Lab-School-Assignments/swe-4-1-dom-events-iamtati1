@@ -37,10 +37,12 @@ TODO:
 const button = document.querySelector('#ask-btn');
 const eightBall = document.querySelector("#eight-ball");
 const answer = document.querySelector("#answer");
+
 button.addEventListener('click', () => {
   eightBall.style.display = "none";
   const fortune = generateFortune(fortunes);
   answer.textContent = fortune;
+  answer.style.display = "block";
 
 });
 

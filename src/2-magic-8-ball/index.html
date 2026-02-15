@@ -1,19 +1,31 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Magic 8 Ball Challenge</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <h1>Magic 8 Ball</h1>
-    <p>Ask a yes/no question and click the button to see your fortune</p>
-    <div id="eight-ball">
-      <p class="eight-ball-content" id="eight">8</p>
-      <p class="eight-ball-content" id="answer"></p>
-    </div>
-    <button id="ask-btn">Ask</button>
-    <script src="index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Magic 8 Ball Challenge</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <h1>Magic 8 Ball</h1>
+  <p>Ask a yes/no question and click the button to see your fortune</p>
+
+
+  <!-- Eight Ball Display -->
+  <div id="eight-ball">
+    <p class="eight-ball-content" id="eight">8</p>
+    <p class="eight-ball-answer" id="answer" style="display: none;"></p>
+  </div>
+
+  <!-- Controls -->
+
+  <button id="ask-btn">Ask</button>
+  <img id="eight-ball-img" src="eight-ball.png" alt="Eight Ball">
+  </div>
+
+  <script src="index.js"></script>
+</body>
+
 </html>

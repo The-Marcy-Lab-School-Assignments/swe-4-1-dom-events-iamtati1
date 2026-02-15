@@ -52,7 +52,7 @@ Before:
 </html>
 ```
 
-The script lied outside of the function body.
+The script resides outside of the function body.
 
 After:
 ```
@@ -84,9 +84,10 @@ div.addEventListener('click', (event) => {
 });
 ```
 
-When a user clicks the button, both `event.target` and `event.currentTarget` are logged. Explain what each property represents in this scenario and why they might be different.
+When we click a button, `event.target` refers to the element that actually triggered the event. In this case, the `<button>`.`event.currentTarget` refers to the element the event listener is attached to, the `<divid="button-container">`. 
 
-**Your Answer:**
+They are different because of event bubbling, where the event starts at the button and propagates up to its parent elements. If the listener were attached directly to the button, both values would point to the same element.
+
 
 ## Question 3: Creating Elements Dynamically
 
@@ -121,7 +122,16 @@ document.body.append(productCard);
 
 However, when the page loads and the code is executed, the user isn't able to see the image, product name or product price. What is the issue with this code?
 
-**Your Answer:**
+
+The issue with this code is as of now we are only appeneding an empty `div` to the body. In order to fix this we need to append the **image**, **name**, and **price** into the `productCard` first.
+
+``` js
+productCard.append(productImage, productName, productPrice);
+document.body.append(productCard);
+```
+Now all elements are appended specifically to `productCard`.
+Creating elements does not automatically place them inside each other.
+You must explicitly append child elements to their parent.
 
 
 ## Question 4: Event Delegation and event.target.closest()
@@ -161,7 +171,11 @@ todoList.addEventListener('click', (event) => {
 1. What is the name for this approach to event handling? What is the alternative and why is this approach better?
 2. Explain what the `event.target.closest('li')` method does and why it is essential to this approach.
 
-**Your Answer:**
+This is called `Event Delegation`. Instead of attaching seperate event listenrs to each `li` element we rely on one event listener to attach it to the `<ul>` so that it handles events for its child elements as they bubble up.
+
+Event delegation is better because it has fewer listeners in memeory leading to improved performance. It also automatically works for dynamically added list items without having to attach new listeners.
+
+the `event.target.closest('li')`method grabs the nearest ancestor `<li>` element starting from the element that was actually clicked. This is essential because the user might click on a nested `<p>` inside the `<li>`, and `closest('li')` ensures we correctly identify and update the entire list item regardless of where inside it the click occurred.
 
 ## Question 5: NodeList
 
@@ -170,4 +184,19 @@ Do some independent learning and reading about the `querySelectorAll()` method. 
 1. What is the difference between `querySelectorAll()` and `querySelector()`. Give an example of when you would use `querySelectorAll()`.
 2. What is the difference between a `NodeList` and an array? Why is it important to know this difference?
 
-**Your Answer:**
+
+`querySelector()` returns the first element that matches a CSS selector, while `querySelectorAll()` returns all matching elements as a NodeList. 
+
+Use `querySelector()` when you only need one **specific** element for example, selecting a unique element like a header:
+
+```js
+const mainTitle = document.querySelector('h1');
+```
+
+We would use `querySelectorAll()` when selecting **multiple elements**, such as all items in a list or all elements with a shared class. 
+```js
+const todoItems = document.querySelectorAll('.todo-item');
+```
+A `NodeList` is a collection of `DOM` nodes returned by methods like `querySelectorAll()`. It looks like an array, but it is not a real array.
+
+Because a NodeList isn’t a true array, you can’t call most array methods directly on it.
